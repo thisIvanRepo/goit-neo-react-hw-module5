@@ -1,0 +1,19 @@
+.containerContent {
+  display: flex;
+  gap: 20px;
+}
+
+.containerImg {
+  display: flex;
+}
+
+.listGanres {
+  padding: 0;
+
+  display: flex;
+  gap: 10px;
+}
+
+h3, h4 {
+  color: rgb(255, 233, 233);
+}
