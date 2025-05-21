@@ -1,5 +1,5 @@
 import { Simple404 } from "@404pagez/react";
-import Home from "../HomePage";
+import Home from "../HomePage/HomePage";
 import { useNavigate } from "react-router-dom";
 
 const NotFoundPage = () => {
