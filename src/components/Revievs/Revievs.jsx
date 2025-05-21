@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchRevievs } from "../../api/moviesApi";
 import RevievsList from "../RevievsList/RevievsList";
+import ErrorMessege from "../ErrorMessage/ErrorMessege";
 
 const Revievs = () => {
   const { movieId } = useParams();
@@ -13,8 +14,9 @@ const Revievs = () => {
       try {
         const reviews = await fetchRevievs(movieId);
         setRevievs(reviews);
+        if (reviews.length === 0) setError("No reviews results.");
       } catch {
-        setError("Failed to load revievs.");
+        setError("Somthing whrong...");
       }
     };
 
@@ -24,7 +26,11 @@ const Revievs = () => {
   return (
     <div>
       {error && <p>{error}</p>}
-      {reviews.length > 0 && <RevievsList reviews={reviews} />}
+      {reviews.length > 0 ? (
+        <RevievsList reviews={reviews} />
+      ) : (
+        <ErrorMessege massege={error} />
+      )}
     </div>
   );
 };

@@ -4,7 +4,7 @@ import Section from "../../components/Section/Section";
 import Container from "../../components/Container/Container";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import { featchFilmsByQuery } from "../../api/moviesApi";
-import ErrorMassege from "../../components/ErrorMassage/ErrorMassege";
+import ErrorMessege from "../../components/ErrorMessage/ErrorMessege";
 import Loader from "../../components/Loader/Loader";
 import MovieList from "../../components/MovieList/MovieList";
 
@@ -43,7 +43,7 @@ const MoviesPage = () => {
       <Container>
         <SearchForm onSubmit={onSubmit} />
         {isLoading && <Loader />}
-        {error && <ErrorMassege tittle={error} />}
+        {error && <ErrorMessege tittle={error} />}
         {movies.length > 0 && <MovieList movies={movies} />}
       </Container>
     </Section>

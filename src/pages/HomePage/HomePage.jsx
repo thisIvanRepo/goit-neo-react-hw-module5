@@ -3,7 +3,7 @@ import { getTrendingMovies } from "../../api/moviesApi";
 import Section from "../../components/Section/Section";
 import Container from "../../components/Container/Container";
 import Loader from "../../components/Loader/Loader";
-import ErrorMassege from "../../components/ErrorMassage/ErrorMassege";
+import ErrorMessege from "../../components/ErrorMessage/ErrorMessege";
 import MovieList from "../../components/MovieList/MovieList";
 
 export default function Home() {
@@ -31,7 +31,7 @@ export default function Home() {
     <Section>
       <Container>
         {isLoading && <Loader />}
-        {error && <ErrorMassege />}
+        {error && <ErrorMessege />}
         {trendMovies.length > 0 && <MovieList movies={trendMovies} />}
       </Container>
     </Section>

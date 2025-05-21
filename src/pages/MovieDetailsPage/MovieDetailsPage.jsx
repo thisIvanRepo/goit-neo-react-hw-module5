@@ -4,9 +4,9 @@ import Container from "../../components/Container/Container";
 import Loader from "../../components/Loader/Loader";
 import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import GoBackBtn from "../../components/GoBackBtn/GoBackBtn";
-import ErrorMassege from "../../components/ErrorMassage/ErrorMassege";
 import InfoOfMovie from "../../components/InfoOfMovie/InfoOfMovie";
 import { fetchMovie } from "../../api/moviesApi";
+import ErrorMessege from "../../components/ErrorMessage/ErrorMessege";
 
 const MovieDetailsPage = () => {
   const location = useLocation();
@@ -24,7 +24,7 @@ const MovieDetailsPage = () => {
         const data = await fetchMovie(id);
         setMovieDetails(data);
       } catch (err) {
-        setError(err.masege);
+        setError(err.message);
       } finally {
         setIsLoading(false);
       }
@@ -38,7 +38,7 @@ const MovieDetailsPage = () => {
       <Container>
         {isLoading && <Loader />}
         <GoBackBtn path={goBackLink.current} />
-        {error && <ErrorMassege title={error} />}
+        {error && <ErrorMessege message={error} />}
         {movieDetails && <InfoOfMovie movieDetails={movieDetails} />}
         <nav
           style={{
