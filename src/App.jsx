@@ -1,8 +1,8 @@
 import { lazy, Suspense } from "react";
 import "./App.css";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
-import Loader from "./components/Loader/Loader";
+import NotFoundPage from "./pages/HomePage/NotFoundPage/NotFoundPage";
 
 const Home = lazy(() => import("./pages/HomePage/HomePage"));
 const MoviesPage = lazy(() => import("./pages/MoviesPage/MoviesPage"));
@@ -24,7 +24,7 @@ function App() {
             <Route path="cast" element={<MoviesCast />} />
             <Route path="revievs" element={<Revievs />} />
           </Route>
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </>
